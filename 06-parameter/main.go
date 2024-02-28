@@ -70,7 +70,11 @@ func main() {
 
 	app.Post("/users/", createUser)
 
-	// c.BodyParser(&data) -> from JSON to go struct
+	app.Get("/api/*", func(c *fiber.Ctx) error {
+		return c.SendString("API path: " + c.Params("*"))
+	})
+
+	// Note that c.BodyParser(&data) is used to parse the request body
 
 	app.Listen(":3000")
 
