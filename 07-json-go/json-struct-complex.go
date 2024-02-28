@@ -57,6 +57,6 @@ func main() {
 		},
 	}
 
-	bytes, _ := json.Marshal(menu)
-	fmt.Println(bytes)
+	jsonString, _ := json.MarshalIndent(menu, "", " ")
+	fmt.Println(string(jsonString))
 }
