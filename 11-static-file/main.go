@@ -13,6 +13,7 @@ func main() {
 		Views: engine,
 	})
 
+	app.Static("/static", "./static")
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.Render("index", fiber.Map{
 			"Title": "Hello, World!",
